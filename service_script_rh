@@ -1,0 +1,106 @@
+#!/bin/sh
+#
+# example start stop daemon for CentOS (sysvinit)
+#
+# chkconfig: - 64 36
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 2 3 4 6
+# Required-Start:
+# description: example start stop daemon for CentOS
+# processname: python
+# pidfile: none
+# lockfile: /var/lock/subsys/example
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+[ "$NETWORKING" = "no" ] && exit 0
+
+USER="root"
+NAME="example"
+#prog=$NAME
+APPBIN="/usr/bin/python"
+APPARGS="-m SimpleHTTPServer 8000"
+LOGFILE="/var/log/$NAME/error.log"
+LOCKFILE="/var/lock/subsys/$NAME"
+
+LOGPATH=$(dirname $LOGFILE)
+
+start() {
+        # [ -x $prog ] || exit 5
+        [ -d $LOGPATH ] || mkdir -p $LOGPATH
+        [ -f $LOGFILE ] || touch $LOGFILE
+
+        echo -n $"Starting $NAME: "
+        daemon --user=$USER "$APPBIN $APPARGS >>$LOGFILE &"
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && touch $LOCKFILE
+        return $RETVAL
+}
+
+stop() {
+        echo -n $"Stopping $NAME: "
+        # killproc $APPBIN
+        pid=`ps -ef|grep "${APPBIN} ${APPARGS}.*"|grep -v grep|awk '{print $2}'`
+        kill -9 ${pid}
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && rm -f $LOCKFILE
+        return $RETVAL
+}
+
+restart() {
+        stop
+        start
+}
+
+rh_status() {
+        # set -o xtrace
+        pid=`ps -ef|grep "${APPBIN} ${APPARGS}.*"|grep -v grep|awk '{print $2}'`
+        if [ "${pid}x" != "x" ];then
+                return 0
+        else
+                return 1
+        fi
+        # set +o xtrace
+        #status $prog
+}
+
+rh_status_q() {
+        rh_status
+        if [ $? -eq 0 ];then
+                echo "${NAME} start/running, process ${pid}"
+        else
+                echo "${NAME} not running"
+        fi
+}
+
+case "$1" in
+        start)
+                rh_status
+                if [ $? -eq 0 ];then
+                        exit 0
+                fi
+                $1
+        ;;
+        stop)
+                rh_status
+                if [ $? -eq 0 ];then
+                        $1
+                fi
+        ;;
+        restart)
+                $1
+        ;;
+        status)
+                rh_status_q
+        ;;
+        *)
+                echo $"Usage: $0 {start|stop|status|restart}"
+                exit 2
+esac
