@@ -1,0 +1,24 @@
+inspired by https://github.com/frdmn/service-daemons
+
+functions:
+create new linux services
+auto start the services when starting a server
+add daemon for the services
+
+
+supported os(other OSes are not tested):
+redhat 6.x
+ubuntu 14.04
+
+how to use:
+you need to log in as "root", upload the directory to anywhere, and then execute the script create_service.sh.
+create_service.sh name appbin appargs
+name: name of the service
+appbin：the command(this command should not contain space, and need full path)
+appargs: parameters of the command(arguments with spaces between should be enclosed by quotes, and if there is no parameter, there should be two quotes)
+
+All services created here have one daemon. 
+By default, the daemon will check services once every minute, if a service is not running, the daemon will try at most 5 times to start it.
+You can check log file /var/log/service_guard/service_guard.log for detailed stop/start information.
+
+
