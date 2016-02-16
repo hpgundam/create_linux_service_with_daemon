@@ -1,28 +1,26 @@
-Ô­Ê¼³ö´¦£ºhttps://github.com/frdmn/service-daemons
+å¯å‘äºŽhttps://github.com/frdmn/service-daemons
 
-¹¦ÄÜ£º
-´´½¨×Ô¶¨Òå·þÎñ
-Ìí¼Ó¿ª»úÆô¶¯
-Îª¸Ã·þÎñ´´½¨ÊØ»¤½ø³Ì
+åŠŸèƒ½ï¼š
+åˆ›å»ºè‡ªå®šä¹‰æœåŠ¡
+æ·»åŠ å¼€æœºå¯åŠ¨
+ä¸ºè¯¥æœåŠ¡åˆ›å»ºå®ˆæŠ¤è¿›ç¨‹
 
-Ö§³ÖÏµÍ³£º
+æ”¯æŒç³»ç»Ÿï¼š
 redhat 6.5
 ubuntu 14.04
 
 
-Ê¹ÓÃ·½·¨£º
-ÐèÒªÊ¹ÓÃrootÀ´Ê¹ÓÃ¸Ã¹¤¾ß£¬½«Õâ¸öÄ¿Â¼ËæÒâ·ÅÔÚÈÎºÎÄ¿Â¼ÏÂ£¬È»ºóÖ´ÐÐ½Å±¾create_service.sh¼´¿É£º
+ä½¿ç”¨æ–¹æ³•ï¼š
+éœ€è¦ä½¿ç”¨rootæ¥ä½¿ç”¨è¯¥å·¥å…·ï¼Œå°†è¿™ä¸ªç›®å½•éšæ„æ”¾åœ¨ä»»ä½•ç›®å½•ä¸‹ï¼Œç„¶åŽæ‰§è¡Œè„šæœ¬create_service.shå³å¯ï¼š
 create_service.sh name appbin appargs
-name:·þÎñÃû
-appbin:Ö´ÐÐµÄÃüÁî£¨ÃüÁîÖÐ²»ÄÜÓÐ¿Õ¸ñ£¬²¢ÇÒÒªÐ´È«Â·¾¶£©
-appargs:ÃüÁîµÄ²ÎÊý£¨ÈçÓÐ¿Õ¸ñÐèÒªÓÃÒýºÅ°ü¹ü£¬Èç¹ûÃ»ÓÐ²ÎÊýÊ¹ÓÃÁ½¸öÒýºÅ±íÊ¾£©
+name:æœåŠ¡å
+appbin:æ‰§è¡Œçš„å‘½ä»¤ï¼ˆå‘½ä»¤ä¸­ä¸èƒ½æœ‰ç©ºæ ¼ï¼Œå¹¶ä¸”è¦å†™å…¨è·¯å¾„ï¼‰
+appargs:å‘½ä»¤çš„å‚æ•°ï¼ˆå¦‚æœ‰ç©ºæ ¼éœ€è¦ç”¨å¼•å·åŒ…è£¹ï¼Œå¦‚æžœæ²¡æœ‰å‚æ•°ä½¿ç”¨ä¸¤ä¸ªå¼•å·è¡¨ç¤ºï¼‰
 
-ÊØ»¤½ø³Ì»áÃ¿¸ôÒ»·ÖÖÓ¼àÌý±»ÊØ»¤·þÎñµÄ×´Ì¬£¬Èç¹û·þÎñÍ£Ö¹ÁËÔò³¢ÊÔÆô¶¯·þÎñ£¬×î¶à³¢ÊÔ5´Î¡£
-¿ÉÒÔ²é¿´ÊØ»¤½ø³ÌµÄÈÕÖ¾ÁË½âÆôÍ£ÏêÇé£º/var/log/service_guard/service_guard.log
+å®ˆæŠ¤è¿›ç¨‹ä¼šæ¯éš”ä¸€åˆ†é’Ÿç›‘å¬è¢«å®ˆæŠ¤æœåŠ¡çš„çŠ¶æ€ï¼Œå¦‚æžœæœåŠ¡åœæ­¢äº†åˆ™å°è¯•å¯åŠ¨æœåŠ¡ï¼Œæœ€å¤šå°è¯•5æ¬¡ã€‚
+å¯ä»¥æŸ¥çœ‹å®ˆæŠ¤è¿›ç¨‹çš„æ—¥å¿—äº†è§£å¯åœè¯¦æƒ…ï¼š/var/log/service_guard/service_guard.log
 
 
-×¢ÒâÊÂÏî£º
-¶ÔÓÚredhat, Èç¹ûÓÐÁ½¸ö»òÕßÁ½¸öÒÔÉÏµÄ·þÎñÆô¶¯µÄÊÇÍ¬Ò»¸öÃüÁî£¬ÔòÒ»¸ö·þÎñÍ£Ö¹µÄÊ±ºò»áÍ£µôËùÓÐµÄ·þÎñ
 
 
 
